@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route("/")
 def hello():
     name = request.args.get('name', 'John doe')
-    result = task.hello.delay(name)
+    result = tasks.hello.delay(name)
     result.wait()
     return render_template('index.html', celery=result)
 if __name__ == "__main__":

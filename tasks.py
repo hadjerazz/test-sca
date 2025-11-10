@@ -1,7 +1,7 @@
 import celery, os
 
 app = celery.Celery('scalingo-sample')
-app.conf.update(BROKER_URL=os.environ['REDIS_URL'],
+app.conf.update(BROKER_URL=os.environ['SCALINGO_REDIS_URL'],
                 CELERY_RESULT_BACKEND=os.environ['REDIS_URL'])
 
 @app.task
